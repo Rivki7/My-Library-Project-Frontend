@@ -1,9 +1,10 @@
-import { SentencesSlider } from '../components';
+import { OurLibrary, SentencesSlider } from '../components';
 
 const Home = () => {
   return (
     <>
       <SentencesSlider />
+      <OurLibrary />
     </>
   );
 };
