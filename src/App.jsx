@@ -8,6 +8,8 @@ import {
   HomeLayout,
   NewOnShelf,
 } from './Pages';
+import SignIn from './Pages/SignIn';
+import SignUp from './Pages/SignUp';
 
 const router = createBrowserRouter([
   {
@@ -29,10 +31,6 @@ const router = createBrowserRouter([
         element: <Catalog />,
       },
       {
-        path: '/newBooks',
-        element: <Catalog />,
-      },
-      {
         path: '/newonshelf',
         element: <NewOnShelf />,
       },
@@ -41,6 +39,14 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
     ],
+  },
+  {
+    path: '/signin',
+    element: <SignIn />,
+  },
+  {
+    path: '/signup',
+    element: <SignUp />,
   },
 ]);
 

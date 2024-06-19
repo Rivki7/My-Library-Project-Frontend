@@ -1,28 +1,24 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 const Navbar = () => {
-  const navbarItems = [
-    { name: 'בית', path: '/' },
-    { name: 'אירועים', path: '/events' },
-    { name: 'קטלוג', path: '/catalog' },
-    { name: 'חדש על המדף', path: '/newonshelf' },
-    { name: 'צור קשר', path: '/contact' },
-  ];
   return (
     <nav>
       <Link to={'/'}>
         <img src='./../assets\logo.jpeg' />
       </Link>
-      <ul>
-        {navbarItems.map((item) => {
-          return (
-            <li key={item.name}>
-              <Link to={item.path}>{item.name}</Link>
-            </li>
-          );
-        })}
-      </ul>
-      <button>כניסה</button>
-      <button>הרשמה</button>
+      <div>
+        <NavLink to={'/'}>בית</NavLink>
+        <NavLink to={'/events'}>אירועים</NavLink>
+        <NavLink to={'/catalog'}>קטלוג</NavLink>
+        <NavLink to={'/newonshelf'}>חדש על המדף</NavLink>
+        <NavLink to={'/contact'}>צור קשר</NavLink>
+      </div>
+      <button>
+        {' '}
+        <a href='/signin'>כניסה</a>{' '}
+      </button>
+      <button>
+        <a href='/signup'>הרשמה</a>
+      </button>
     </nav>
   );
 };
