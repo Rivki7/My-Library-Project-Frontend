@@ -1,18 +1,23 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getBooks } from '../features/book/bookSlice';
+// import { useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { getBooks } from '../features/book/bookSlice';
+import { useGetBooksQuery } from '../services/booksApi';
 
 const Catalog = () => {
-  const { books, isLoading } = useSelector((store) => store.book);
+  // const { books, isLoading } = useSelector((store) => store.book);
+  const { data: books, isFetching, isError } = useGetBooksQuery();
+  // const dispatch = useDispatch();
+  console.log('books', books);
 
-  const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getBooks());
+  //   console.log(books);
+  // }, []);
 
-  useEffect(() => {
-    dispatch(getBooks());
-    console.log(books);
-  }, []);
-
-  if (isLoading) {
+  if (isError) {
+    return <h1>Error</h1>;
+  }
+  if (isFetching) {
     return <h1>Loading</h1>;
   }
   return (
