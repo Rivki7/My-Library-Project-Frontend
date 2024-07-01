@@ -8,13 +8,3 @@ const api = createApi({
 });
 
 export default api;
-
-// import axios from 'axios';
-
-// const api1 = axios.create({
-//   baseURL: 'https://localhost:7007/api/',
-
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-// });

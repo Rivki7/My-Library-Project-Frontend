@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import { OurLibrary, SentencesSlider } from '../components';
 
 const Home = () => {
@@ -5,6 +6,7 @@ const Home = () => {
     <>
       <SentencesSlider />
       <OurLibrary />
+      <Button variant='outlined'>Home</Button>
     </>
   );
 };

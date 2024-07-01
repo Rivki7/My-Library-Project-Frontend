@@ -10,6 +10,8 @@ import {
 } from './Pages';
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
+import { ThemeProvider } from '@mui/material/styles/';
+import theme from './theme/theme';
 
 const router = createBrowserRouter([
   {
@@ -53,7 +55,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <ThemeProvider theme={theme}>
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </>
   );
 }
