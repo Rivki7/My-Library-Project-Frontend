@@ -1,10 +1,10 @@
 import { Button } from '@mui/material';
-import { OurLibrary, SentencesSlider } from '../components';
+import { OurLibrary, QuoteCarousel } from '../components';
 
 const Home = () => {
   return (
     <>
-      <SentencesSlider />
+      <QuoteCarousel />
       <OurLibrary />
       <Button variant='outlined'>Home</Button>
     </>

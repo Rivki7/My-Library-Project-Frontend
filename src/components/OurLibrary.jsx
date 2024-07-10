@@ -1,4 +1,6 @@
+import { Container } from '@mui/material';
+
 const OurLibrary = () => {
-  return <div>OurLibrary</div>;
+  return <Container>OurLibrary</Container>;
 };
 export default OurLibrary;
