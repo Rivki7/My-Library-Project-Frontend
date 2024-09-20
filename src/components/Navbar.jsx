@@ -16,6 +16,8 @@ import { AutoStoriesOutlined, Menu as MenuIcon } from '@mui/icons-material';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LoginIcon from '@mui/icons-material/Login';
+import { logoutUser } from '../features/user/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const navigationLinks = [
   { name: 'Home', path: '/' },
@@ -27,7 +29,9 @@ const navigationLinks = [
 
 const ResponsiveAppBar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-
+  const user = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
+  console.log(user);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -131,8 +135,15 @@ const ResponsiveAppBar = () => {
             color='primary'
             href='/signin'
             sx={{ ml: { xs: 'auto', md: 2 } }}
+            onClick={() => {
+              if (user) {
+                dispatch(logoutUser());
+              }
+            }}
           >
-            <Box sx={{ display: { xs: 'none', md: 'block' } }}>Sign In</Box>
+            <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+              {user ? 'Sign Out' : 'Sign In'}
+            </Box>
             <Box sx={{ display: { xs: 'block', md: 'none' } }}>
               <LoginIcon />
             </Box>

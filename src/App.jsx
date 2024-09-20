@@ -13,6 +13,7 @@ import SignUp from './Pages/SignUp';
 import { ThemeProvider } from '@mui/material/styles/';
 import theme from './theme/theme';
 import { CssBaseline } from '@mui/material';
+import UserArea from './Pages/UserArea';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact />,
+      },
+      {
+        path: '/user',
+        element: <UserArea />,
       },
     ],
   },

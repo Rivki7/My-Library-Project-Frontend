@@ -23,7 +23,12 @@ const Catalog = () => {
   return (
     <>
       {books.map((book) => {
-        return <h1 key={book.id}>{book.dateEnter}</h1>;
+        return (
+          <h1 key={book.id}>
+            {book.dateEnter}
+            {book.name}
+          </h1>
+        );
       })}
     </>
   );

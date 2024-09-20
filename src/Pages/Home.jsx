@@ -1,4 +1,3 @@
-import { Button } from '@mui/material';
 import { OpeningHours, OurLibrary, QuoteCarousel } from '../components';
 
 const Home = () => {
@@ -7,7 +6,6 @@ const Home = () => {
       <QuoteCarousel />
       <OurLibrary />
       <OpeningHours />
-      <Button variant='outlined'>Home</Button>
     </>
   );
 };
