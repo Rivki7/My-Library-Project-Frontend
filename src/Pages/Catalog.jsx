@@ -1,25 +1,29 @@
 // import { useEffect } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getBooks } from '../features/book/bookSlice';
+import { Box, CircularProgress } from '@mui/material';
 import { useGetBooksQuery } from '../services/booksApi';
 
 const Catalog = () => {
-  // const { books, isLoading } = useSelector((store) => store.book);
   const { data: books, isFetching, isError } = useGetBooksQuery();
-  // const dispatch = useDispatch();
-  console.log('books', books);
 
-  // useEffect(() => {
-  //   dispatch(getBooks());
-  //   console.log(books);
-  // }, []);
+  console.log('books', books);
 
   if (isError) {
     return <h1>Error</h1>;
   }
   if (isFetching) {
-    return <h1>Loading</h1>;
+    return (
+      <Box sx={{ display: 'flex' }}>
+        <CircularProgress />
+      </Box>
+    );
   }
+  return (
+    <Box sx={{ display: 'flex' }}>
+      <CircularProgress />
+    </Box>
+  );
   return (
     <>
       {books.map((book) => {
