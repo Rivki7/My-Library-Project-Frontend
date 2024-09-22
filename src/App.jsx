@@ -14,6 +14,10 @@ import { ThemeProvider } from '@mui/material/styles/';
 import theme from './theme/theme';
 import { CssBaseline } from '@mui/material';
 import UserArea from './Pages/UserArea';
+import withLayout from './components/WithLayout';
+
+const SignUpWithLayout = withLayout(SignUp);
+const SignInWithLayout = withLayout(SignIn);
 
 const router = createBrowserRouter([
   {
@@ -50,11 +54,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/signin',
-    element: <SignIn />,
+    element: <SignInWithLayout />,
   },
   {
     path: '/signup',
-    element: <SignUp />,
+    element: <SignUpWithLayout />,
   },
 ]);
 

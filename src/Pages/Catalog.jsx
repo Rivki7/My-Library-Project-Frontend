@@ -14,16 +14,19 @@ const Catalog = () => {
   }
   if (isFetching) {
     return (
-      <Box sx={{ display: 'flex' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '50vh',
+        }}
+      >
         <CircularProgress />
       </Box>
     );
   }
-  return (
-    <Box sx={{ display: 'flex' }}>
-      <CircularProgress />
-    </Box>
-  );
+
   return (
     <>
       {books.map((book) => {

@@ -1,8 +1,8 @@
-import { Button, TextField, Container, Typography } from '@mui/material';
+import { Button, TextField, Typography } from '@mui/material';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useSignInMutation } from '../services/userApi';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../features/user/userSlice';
 import { useState } from 'react';
@@ -13,8 +13,7 @@ const SignInSchema = Yup.object().shape({
 });
 
 const SignIn = () => {
-  const [signIn, { isLoading, isSuccess, isError, error: signInError }] =
-    useSignInMutation();
+  const [signIn, { isLoading, error: signInError }] = useSignInMutation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [error, setError] = useState();
@@ -56,60 +55,61 @@ const SignIn = () => {
     }
   };
   return (
-    <Container component='main' maxWidth='xs'>
-      <div>
-        <Typography component='h1' variant='h5'>
-          Sign In
-        </Typography>
-        <Formik
-          initialValues={{ email: 'Errol@Harrison.com', password: '12345678' }}
-          validationSchema={SignInSchema}
-          onSubmit={(values) => handleSingIn(values)}
-        >
-          {({ errors, touched }) => (
-            <Form>
-              <Field
-                as={TextField}
-                variant='outlined'
-                margin='normal'
-                fullWidth
-                id='email'
-                label='Email Address'
-                name='email'
-                autoComplete='email'
-                autoFocus
-                error={touched.email && Boolean(errors.email)}
-                helperText={touched.email && errors.email}
-              />
-              <Field
-                as={TextField}
-                variant='outlined'
-                margin='normal'
-                fullWidth
-                name='password'
-                label='Password'
-                type='password'
-                id='password'
-                autoComplete='current-password'
-                error={touched.password && Boolean(errors.password)}
-                helperText={touched.password && errors.password}
-              />
-              {error && <Typography>{error}</Typography>}{' '}
-              <Button
-                type='submit'
-                fullWidth
-                variant='contained'
-                color='primary'
-                sx={{ mt: 3, mb: 2 }}
-                disabled={isLoading}
-              >
-                {isLoading ? 'signing in...' : 'Sign In'}
-              </Button>
-            </Form>
-          )}
-        </Formik>
-      </div>
-    </Container>
+    <>
+      <Typography component='h1' variant='h5'>
+        Sign In
+      </Typography>
+      <Formik
+        initialValues={{ email: 'Errol@Harrison.com', password: '12345678' }}
+        validationSchema={SignInSchema}
+        onSubmit={(values) => handleSingIn(values)}
+      >
+        {({ errors, touched }) => (
+          <Form>
+            <Field
+              as={TextField}
+              variant='outlined'
+              margin='normal'
+              fullWidth
+              id='email'
+              label='Email Address'
+              name='email'
+              autoComplete='email'
+              autoFocus
+              error={touched.email && Boolean(errors.email)}
+              helperText={touched.email && errors.email}
+            />
+            <Field
+              as={TextField}
+              variant='outlined'
+              margin='normal'
+              fullWidth
+              name='password'
+              label='Password'
+              type='password'
+              id='password'
+              autoComplete='current-password'
+              error={touched.password && Boolean(errors.password)}
+              helperText={touched.password && errors.password}
+            />
+            {error && <Typography>{error}</Typography>}{' '}
+            <Button
+              type='submit'
+              fullWidth
+              variant='contained'
+              color='primary'
+              sx={{ mt: 3 }}
+              disabled={isLoading}
+            >
+              {isLoading ? 'signing in...' : 'Sign In'}
+            </Button>
+            <Typography variant='body2' align='center' sx={{ mt: 1 }}>
+              New here? <Link to='/signup'>Sign Up</Link>
+            </Typography>
+          </Form>
+        )}
+      </Formik>
+    </>
   );
 };
 

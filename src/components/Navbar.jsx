@@ -5,7 +5,6 @@ import {
   Typography,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
   Divider,
   Drawer,
@@ -23,7 +22,7 @@ const navigationLinks = [
   { name: 'Home', path: '/' },
   { name: 'Events', path: '/events' },
   { name: 'Catalog', path: '/catalog' },
-  { name: 'New Books', path: '/newonshelf' },
+  { name: 'New Books', path: '/newOnShelf' },
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -68,7 +67,6 @@ const ResponsiveAppBar = () => {
             sx={{ display: { xs: 'block', md: 'none' } }}
             onClick={handleDrawerToggle}
           >
-            <ListItemIcon>{/* Add appropriate icons here */}</ListItemIcon>
             <ListItemText primary={item.name} />
           </ListItem>
         ))}
@@ -169,55 +167,3 @@ const ResponsiveAppBar = () => {
 };
 
 export default ResponsiveAppBar;
-
-// import { AutoStoriesOutlined } from '@mui/icons-material';
-// import { AppBar, Button, Container, Toolbar, Typography } from '@mui/material';
-// import { Link, NavLink } from 'react-router-dom';
-// const Navbar = () => {
-//   return (
-//     <>
-//       <AppBar position='static'>
-//         <Container maxWidth='xl'>
-//           <Toolbar disableGutters>
-//             <AutoStoriesOutlined />
-//             <Typography
-//               variant='h6'
-//               noWrap
-//               component='a'
-//               href='#app-bar-with-responsive-menu'
-//               sx={{
-//                 mr: 2,
-//                 display: { xs: 'none', md: 'flex' },
-//                 fontFamily: 'monospace',
-//                 fontWeight: 700,
-//                 color: 'inherit',
-//                 textDecoration: 'none',
-//               }}
-//             >
-//               Book Tracker
-//             </Typography>
-//           </Toolbar>
-//         </Container>
-//       </AppBar>
-//       <nav>
-//         <Link to={'/'}>
-//           <img src='./../assets\logo.jpeg' />
-//         </Link>
-//         <div>
-//           <NavLink to={'/'}>Home</NavLink>
-//           <NavLink to={'/events'}>Events</NavLink>
-//           <NavLink to={'/catalog'}>Catalog</NavLink>
-//           <NavLink to={'/newonshelf'}>New books</NavLink>
-//           <NavLink to={'/contact'}>Contact</NavLink>
-//         </div>
-//         <Button variant='contained'>
-//           <a href='/signin'>Sing in</a>
-//         </Button>
-//         <Button variant='contained'>
-//           <a href='/signup'>sign up</a>
-//         </Button>
-//       </nav>
-//     </>
-//   );
-// };
-// export default Navbar;
